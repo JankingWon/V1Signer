@@ -22,3 +22,5 @@
 
 2. 使用源码，调用`sun.security.tools.jarsigner.Main#main(String[] args)`方法，参数同上
 
+## 注意
+如果是在`Android`设备上适用，要使用`BKS-V1`类型的秘钥，一般用`AndroidStudio`生成的`jks`秘钥是`JKS`类型，可以使用 [KeyStore Explorer](https://keystore-explorer.org/) 查看和转换签名类型
