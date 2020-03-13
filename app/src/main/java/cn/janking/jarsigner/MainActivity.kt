@@ -28,11 +28,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            try {
+                FileUtils.copyFileToFile(assets.open("test.jks"), filesDir.absolutePath + File.separator + "test.jks")
+            } catch (e: IOException) {
+                log("复制签名出错！" + e.message)
+                e.printStackTrace()
+            }
+            if (!hasInit) {
+                log("复制签名完成！")
+            }
+            hasInit = true
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        requestPermissions(GROUP_STORAGE, CODE_REQUEST_STORAGE_PERMISSION)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(GROUP_STORAGE, CODE_REQUEST_STORAGE_PERMISSION)
+        }
+
     }
 
     /**
@@ -128,7 +143,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun log(msg: String) {
         runOnUiThread {
-            console.text = console.text.toString() + "\n" + msg
+            console.setText("${console.text}\n${msg}")
         }
     }
 

@@ -20,7 +20,7 @@
 
 
         <provider
-            android:authorities="cn.janking.signapk"
+            android:authorities="cn.janking.jarsigner"
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
