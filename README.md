@@ -9,6 +9,10 @@
 1. 如果是使用`java`开发，只需要复制 `com.sun.jarsigner` 和 `sun.security.tools.jarsigner` 两个`package`到你的项目中即可
 2. 如果是使用`android`开发，则需要手动导入本项目中的所有源代码
 
+## 效果
+
+![image-20200317204332430](README.assets/image-20200317204332430.png)
+
 ## 使用
 
 1. 直接使用打包好的`jar`包([链接](https://github.com/JankingWon/JarSigner/releases))，在命令行中输入
