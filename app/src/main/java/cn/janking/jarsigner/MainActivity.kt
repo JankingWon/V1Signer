@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val CODE_OPEN_UNSIGNED_APK = 1
     private val CODE_REQUEST_STORAGE_PERMISSION = 2
     private val GROUP_STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private val KEY = "cert.jks"
 
     private var hasInit: Boolean = false
     private var unsignedApkFile: File? = null
@@ -28,9 +30,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //可以滚动
+        console.run { console.setMovementMethod(ScrollingMovementMethod()) }
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
             try {
-                FileUtils.copyFileToFile(assets.open("test.jks"), filesDir.absolutePath + File.separator + "test.jks")
+                FileUtils.copyFileToFile(assets.open(KEY), filesDir.absolutePath + File.separator + KEY)
             } catch (e: IOException) {
                 log("复制签名出错！" + e.message)
                 e.printStackTrace()
@@ -98,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                     sun.security.tools.jarsigner.Main.main(
                             arrayOf(
                                     "-verbose",
-                                    "-keystore", filesDir.absolutePath + File.separator + "test.jks",
+                                    "-keystore", filesDir.absolutePath + File.separator + KEY,
                                     "-storepass", "123456",
                                     "-keyPass", "123456",
                                     "-signedjar",
@@ -178,7 +182,7 @@ class MainActivity : AppCompatActivity() {
         }
         //表示已经授权
         try {
-            FileUtils.copyFileToFile(assets.open("test.jks"), filesDir.absolutePath + File.separator + "test.jks")
+            FileUtils.copyFileToFile(assets.open(KEY), filesDir.absolutePath + File.separator + KEY)
         } catch (e: IOException) {
             log("复制签名出错！" + e.message)
             e.printStackTrace()
