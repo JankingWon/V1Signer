@@ -1,6 +1,8 @@
 ## 说明
 
-本项目使用的是v1签名，可适用所有Android版本。
+本项目使用的是v1签名，生成的APK可适用所有Android版本。
+
+本项目运行需要Android7.0及以上。
 
 本项目的关于签名的源码全部来源于 https://github.com/frohoff/jdk8u-jdk ，用于给`Android Apk`签名
 
