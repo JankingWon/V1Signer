@@ -74,7 +74,8 @@ import java.text.Collator;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
+//用来兼容API26以下
+import compact.java.util.Base64;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -104,7 +105,7 @@ import sun.security.util.DerInputStream;
 import sun.security.util.DerValue;
 import sun.security.util.ManifestDigester;
 import sun.security.util.Password;
-import sun.security.util.SignatureFileVerifier;
+import sun.security.util.CompactSignatureFileVerifier;
 import sun.security.x509.AlgorithmId;
 import sun.security.x509.NetscapeCertTypeExtension;
 import sun.security.x509.X500Name;
@@ -1185,7 +1186,7 @@ public class Main {
                     // out first
                     mfFiles.addElement(ze);
 
-                    if (SignatureFileVerifier.isBlockOrSF(
+                    if (CompactSignatureFileVerifier.isBlockOrSF(
                             ze.getName().toUpperCase(Locale.ENGLISH))) {
                         wasSigned = true;
                     }
@@ -1384,9 +1385,9 @@ public class Main {
                 zipFile = null;
             }
 
-            if (zos != null) {
-                zos.close();
-            }
+//            if (zos != null) {
+//                zos.close();
+//            }
         }
 
         // no IOException thrown in the follow try clause, so disable
@@ -1524,7 +1525,7 @@ public class Main {
      * . META-INF/*.EC
      */
     private boolean signatureRelated(String name) {
-        return SignatureFileVerifier.isSigningRelated(name);
+        return CompactSignatureFileVerifier.isSigningRelated(name);
     }
 
     Map<CodeSigner,String> cacheForSignerInfo = new IdentityHashMap<>();

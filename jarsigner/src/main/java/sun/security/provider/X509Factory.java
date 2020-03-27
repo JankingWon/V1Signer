@@ -40,7 +40,7 @@ import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
+import compact.java.util.Base64;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;

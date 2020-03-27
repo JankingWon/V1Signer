@@ -62,7 +62,7 @@ import sun.security.util.ObjectIdentifier;
  * @author Amit Kapoor
  * @author Hemma Prafullchandra
  */
-public class Extension implements java.security.cert.Extension {
+public class Extension implements compact.java.security.cert.Extension {
 
     protected ObjectIdentifier  extensionId = null;
     protected boolean           critical = false;
