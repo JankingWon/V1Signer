@@ -509,22 +509,6 @@ public class X509CRLEntryImpl extends X509CRLEntry
             getExtension(PKIXExtensions.CertificateIssuer_Id);
     }
 
-    /**
-     * Returns all extensions for this entry in a map
-     * @return the extension map, can be empty, but not null
-     */
-    public Map<String, java.security.cert.Extension> getExtensions() {
-        if (extensions == null) {
-            return Collections.emptyMap();
-        }
-        Collection<Extension> exts = extensions.getAllExtensions();
-        Map<String, java.security.cert.Extension> map = new TreeMap<>();
-        for (Extension ext : exts) {
-            map.put(ext.getId(), ext);
-        }
-        return map;
-    }
-
     @Override
     public int compareTo(X509CRLEntryImpl that) {
         int compSerial = getSerialNumber().compareTo(that.getSerialNumber());

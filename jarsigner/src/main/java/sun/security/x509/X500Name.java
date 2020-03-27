@@ -1411,7 +1411,7 @@ public class X500Name implements GeneralNameInterface, Principal {
             principalConstructor = constr;
             principalField = (Field)result[1];
         } catch (Exception e) {
-            throw new InternalError("Could not obtain X500Principal access", e);
+            throw new compact.java.lang.InternalError("Could not obtain X500Principal access", e);
         }
     }
 
