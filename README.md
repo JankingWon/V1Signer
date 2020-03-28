@@ -29,4 +29,6 @@
 2. 使用源码，调用`sun.security.tools.jarsigner.Main#main(String[] args)`方法，参数同上
 
 ## 注意
-如果是在`Android`设备上适用，要使用`BKS-V1`类型的秘钥，一般用`AndroidStudio`生成的`jks`秘钥是`JKS`类型，可以使用 [KeyStore Explorer](https://keystore-explorer.org/) 查看和转换签名类型
+**如果是在`Android`设备上使用，要使用`BKS-V1`类型的秘钥，一般用`AndroidStudio`生成的`jks`秘钥是`JKS`类型，可以使用 [KeyStore Explorer](https://keystore-explorer.org/) 查看和转换签名类型**
+
+**如果使用`jar`包或在PC端使用代码运行，使用`BKS-V1`类型秘钥，会弹出“错误: java.lang.RuntimeException: 密钥库加载: Invalid keystore format”，改成`jks`可以解决**
