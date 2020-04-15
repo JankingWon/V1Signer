@@ -22,15 +22,30 @@
 
 
     <Button
-        android:id="@+id/startSign"
+        android:id="@+id/jarSigner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
-        android:onClick="startSign"
-        android:text="开始签名"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="startJarSigner"
+        android:text="JarSigner"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@id/apkSigner"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pickUnsignedApkFile" />
+
+
+    <Button
+        android:id="@+id/apkSigner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="startApkSigner"
+        android:text="ApkSigenr"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/jarSigner"
         app:layout_constraintTop_toBottomOf="@id/pickUnsignedApkFile" />
 
     <TextView
@@ -41,6 +56,6 @@
         android:scrollbars="vertical"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/startSign" />
+        app:layout_constraintTop_toBottomOf="@id/jarSigner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
