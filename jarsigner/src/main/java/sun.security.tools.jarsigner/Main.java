@@ -1385,9 +1385,9 @@ public class Main {
                 zipFile = null;
             }
 
-            if (zos != null) {
-                zos.close();
-            }
+//            if (zos != null) {
+//                zos.close();
+//            }
         }
 
         // no IOException thrown in the follow try clause, so disable
