@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.janking.jarsigner">
+    package="cn.janking.v1signer">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
@@ -20,7 +20,7 @@
 
 
         <provider
-            android:authorities="cn.janking.jarsigner"
+            android:authorities="cn.janking.v1signer"
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true"

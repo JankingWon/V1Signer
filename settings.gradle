@@ -1,2 +1,2 @@
-rootProject.name='JarSigner'
+rootProject.name='V1Signer'
 include ':app', ':jarsigner', ':apksigner'

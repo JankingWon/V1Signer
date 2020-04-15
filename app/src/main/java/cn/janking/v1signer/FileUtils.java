@@ -1,4 +1,4 @@
-package cn.janking.jarsigner;
+package cn.janking.v1signer;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package cn.janking.jarsigner
+package cn.janking.v1signer
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.android.signapk.SignApk
+import jarsigner.sun.security.tools.jarsigner.Main
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.IOException
@@ -211,7 +212,7 @@ class MainActivity : AppCompatActivity() {
         log("[JarSigner]")
         performSign {
             //签名
-            sun.security.tools.jarsigner.Main.main(
+            Main.main(
                     arrayOf(
                             "-verbose",
                             "-keystore", filesDir.absolutePath + File.separator + keyJarSigner,

@@ -7,6 +7,8 @@
 
 使用的均是V1签名，可适用所有Android版本。
 
+> 由于`JarSigner`和`ApkSigner`中有相同的`class`，无法打包成`release`的`APK`，接入时需要去掉一个`module`，但是`debug`模式可以直接运行
+
 ## 效果
 
 <img src="README.assets/image-20200415221027516.png" width="369"></img>

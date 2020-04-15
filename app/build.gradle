@@ -7,8 +7,8 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "cn.janking.jarsigner"
-        minSdkVersion 21
+        applicationId "cn.janking.v1signer"
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
