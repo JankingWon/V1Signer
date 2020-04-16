@@ -10,10 +10,12 @@ public final class FileUtils {
     /**
      * 复制文件
      */
-    public static void copyFileToFile(InputStream inputStream, String toFile) throws IOException {
+    public static File copyFileToFile(InputStream inputStream, String toFile) throws IOException {
         FileOutputStream outputStream;
-        outputStream = new FileOutputStream(getExistFile(toFile));
+        File outFile = getExistFile(toFile);
+        outputStream = new FileOutputStream(outFile);
         copyFileToFile(inputStream, outputStream);
+        return outFile;
     }
 
     /**

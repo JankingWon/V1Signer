@@ -5,7 +5,9 @@
 * `JarSigner`
 * `ApkSigner`
 
-使用的均是V1签名，可适用所有Android版本。
+使用的均是V1签名，签名后可适用所有Android版本。
+
+本项目可在Android7.0及以上运行（不兼容Android10.0）
 
 > 由于`JarSigner`和`ApkSigner`中有相同的`class`，无法打包成`release`的`APK`，接入时需要去掉一个`module`，但是`debug`模式可以直接运行
 

@@ -48,6 +48,7 @@ public final class UriUtils {
         String scheme = uri.getScheme();
         String path = uri.getPath();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                && Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
                 && path != null) {
             String[] externals = new String[]{"/external", "/external_path"};
             for (String external : externals) {
@@ -61,13 +62,14 @@ public final class UriUtils {
                 }
             }
         }
+        //如果是file://协议
         if (ContentResolver.SCHEME_FILE.equals(scheme)) {
             if (path != null) return new File(path);
             Log.d("UriUtils", uri.toString() + " parse failed. -> 0");
             return null;
         }// end 0
-        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-                && DocumentsContract.isDocumentUri(application, uri)) {
+        //如果是com.android.*.documents类型
+        else if (DocumentsContract.isDocumentUri(application, uri)) {
             if ("com.android.externalstorage.documents".equals(authority)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
@@ -125,13 +127,12 @@ public final class UriUtils {
                     try {
                         final Uri contentUri = ContentUris.withAppendedId(
                                 Uri.parse("content://downloads/public_downloads"),
+                                //此处有可能有问题，如content://com.android.providers.downloads.documents/document/msf%3A491656
                                 Long.valueOf(id)
                         );
                         return getFileFromUri(application, contentUri, "1_1");
                     } catch (NumberFormatException e) {
-                        if (id.startsWith("raw:")) {
-                            return new File(id.substring(4));
-                        }
+                        e.printStackTrace();
                     }
                 }
                 Log.d("UriUtils", uri.toString() + " parse failed. -> 1_1");
@@ -164,6 +165,7 @@ public final class UriUtils {
                 return null;
             }// end 1_4
         }// end 1
+        //如果是content://类型
         else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
             return getFileFromUri(application, uri, "2");
         }// end 2

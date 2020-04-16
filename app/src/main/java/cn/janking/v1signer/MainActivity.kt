@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri.fromParts
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.Settings
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
         hasInit = true
     }
+
     /**
      * 是否把签名复制完成
      */
@@ -178,11 +180,29 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == codePickUnsignedApk) {
             data?.data?.let {
-                unsignedApkFile = UriUtils.uri2File(application, it)?.apply {
-                    pickUnsignedApkFile.text = absolutePath
-                    log("成功加载文件(${name})")
+                //小于Android Q
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                    unsignedApkFile = UriUtils.uri2File(application, it)?.apply {
+                        pickUnsignedApkFile.text = absolutePath
+                        log("成功加载文件(${name})")
+                    }
+                } else {
+                    //大于Android Q
+                    log("正在复制文件...")
+                    Thread {
+                        try {
+                            val temp = outPath +File.separator + "unsigned.apk"
+                            unsignedApkFile= FileUtils.copyFileToFile(
+                                    contentResolver.openInputStream(it),
+                                    temp
+                            )
+                            log("成功加载文件(${temp})")
+                        }catch (e : IOException){
+                            log("复制文件出错！")
+                        }
+                    }.start()
                 }
-            }
+            } ?: log("选择文件为空！")
         }
     }
 
@@ -231,7 +251,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * 执行签名
      */
-    private fun performSign(signAction: (String)-> Unit){
+    private fun performSign(signAction: (String) -> Unit) {
         return unsignedApkFile?.let {
             if (!it.exists()) {
                 log("待签名apk不存在！")
@@ -246,7 +266,7 @@ class MainActivity : AppCompatActivity() {
                     //签名
                     signAction(it.absolutePath)
                 } catch (e: java.lang.Exception) {
-                    log("签名出错...(${e.message})")
+                    log("签名出错！(${e.message})")
                     e.printStackTrace()
                     return@Runnable
                 }
