@@ -1,5 +1,6 @@
-[![](https://jitpack.io/v/cn.janking/V1Signer.svg)](https://jitpack.io/#cn.janking/V1Signer)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/jankingwon/V1Signer)](https://github.com/JankingWon/V1Signer/releases/latest)
+[![](https://jitpack.io/v/cn.janking/V1Signer.svg)](https://jitpack.io/#cn.janking/V1Signer) 
+[![](https://img.shields.io/github/v/release/jankingwon/V1Signer)](https://github.com/JankingWon/V1Signer/releases/latest) 
+[![](https://img.shields.io/github/license/jankingWon/V1Signer)](https://github.com/JankingWon/V1Signer/blob/master/LICENSE)
 
 ## 说明
 
