@@ -1,19 +1,20 @@
+# V1Signer
+
+**Android APK v1签名库，便于开发跟APK签名有关的应用 或者利用生成的jar包手动签名**
+
 [![](https://jitpack.io/v/cn.janking/V1Signer.svg)](https://jitpack.io/#cn.janking/V1Signer) 
 [![](https://img.shields.io/github/v/release/jankingwon/V1Signer)](https://github.com/JankingWon/V1Signer/releases/latest) 
 [![](https://img.shields.io/github/license/jankingWon/V1Signer)](https://github.com/JankingWon/V1Signer/blob/master/LICENSE)
 
 ## 说明
 
-**Android APK v1签名库，便于开发跟APK签名有关的应用 或者利用生成的jar包手动签名**
+本项目包含两个`Module`, 使用的**均是V1签名**，签名后可适用所有Android版本。
 
-本项目包含两个`Module`
-
-* `JarSigner`
-* `ApkSigner`
+* `JarSigner` -> sun提供的签名方案
+* `ApkSigner` -> android提供的签名方案
 
 **还有一个名为`app`的DEMO模块，可运行试用**
 
-使用的均是V1签名，签名后可适用所有Android版本。
 
 本项目可在Android7.0及以上运行（暂不兼容Android10.0）
 
