@@ -45,7 +45,7 @@
 
         ```
         dependencies {
-            implementation 'cn.janking:V1Signer:jarsigner:0.0.1'
+            implementation 'cn.janking.V1Signer:jarsigner:0.0.1'
         }
         ```
      
@@ -102,7 +102,7 @@ $java -jar .\jarsigner.jar [-verbose] -keystore "C:\\test.jks"  -storepass 12345
 
          ```
          dependencies {
-             implementation 'cn.janking:V1Signer:apksigner:0.0.1'
+             implementation 'cn.janking.V1Signer:apksigner:0.0.1'
          }
          ```
 
