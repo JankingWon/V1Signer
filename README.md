@@ -1,4 +1,8 @@
+[![](https://jitpack.io/v/cn.janking/V1Signer.svg)](https://jitpack.io/#cn.janking/V1Signer)
+
 ## 说明
+
+**Android APK v1签名库，便于开发跟APK签名有关的应用**
 
 本项目包含两个`Module`
 
@@ -19,9 +23,25 @@
 
 ### 说明
 
-* 本`Module`的关于签名的源码全部来源于 https://github.com/frohoff/jdk8u-jdk ，用于给`Android Apk`签
-  1. 如果是使用`java`开发，只需要复制 `com.sun.jarsigner` 和 `sun.security.tools.jarsigner` 两个`package`到你的项目中即可
-  2. 如果是使用`android`开发，则需要手动导入本项目中的所有源代码
+本`Module`的关于签名的源码全部来源于 https://github.com/frohoff/jdk8u-jdk ，用于给`Android Apk`签
+1. 如果是`java`开发，只需要复制 `com.sun.jarsigner` 和 `sun.security.tools.jarsigner` 两个`package`到你的项目中即可
+
+2. 如果是`android`开发
+     1. 添加`jitpack`的maven库
+
+        ```
+        repositories {
+          maven { url 'https://jitpack.io' }
+        }
+        ```
+
+     2. 添加依赖
+
+        ```
+        dependencies {
+            implementation 'cn.janking:V1Signer:jarsigner:0.0.1'
+        }
+        ```
 
 ### 使用
 
@@ -44,10 +64,24 @@
 
 ### 说明
 
-* 本`Module`的关于签名的源码来源于`Android`源码和`jdk1.8.0_241`，使用`IntelliJ Idea`反编译获得，用于给`Android Apk`签名
-  1. 如果是使用`java`开发，只需要复制 `SignApk.java`([链接](https://github.com/JankingWon/V1Signer/blob/master/apksigner/src/main/java/com/android/signapk/SignApk.java))文件到你的项目中即可
-  2. 如果是使用`android`开发，则需要手动导入本项目中的所有源代码
+本`Module`的关于签名的源码来源于`Android`源码和`jdk1.8.0_241`，使用`IntelliJ Idea`反编译获得，用于给`Android Apk`签名
+1. 如果是`java`开发，只需要复制 `SignApk.java`([链接](https://github.com/JankingWon/V1Signer/blob/master/apksigner/src/main/java/com/android/signapk/SignApk.java))文件到你的项目中即可
+2. 如果是`android`开发
+     1. 添加`jitpack`的maven库
 
+        ```
+        repositories {
+          maven { url 'https://jitpack.io' }
+        }
+        ```
+
+      2. 添加依赖
+
+         ```
+         dependencies {
+             implementation 'cn.janking:V1Signer:apksigner:0.0.1'
+         }
+         ```
 
 ### 使用
 
@@ -61,5 +95,3 @@
    ```
 
 2. 使用源码，调用`SignApk#Main(String[] args)`方法，参数同上
-
-
