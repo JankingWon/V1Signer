@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/cn.janking/V1Signer.svg)](https://jitpack.io/#cn.janking/V1Signer)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/jankingwon/V1Signer)](https://github.com/JankingWon/V1Signer/releases/latest)
 
 ## 说明
 
